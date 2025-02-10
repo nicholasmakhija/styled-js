@@ -1,0 +1,9 @@
+{
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/src/constants/"
+  ],
+  "coverageReporters": ["text"],
+  "testEnvironment": "jsdom",
+  "verbose": true
+}
