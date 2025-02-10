@@ -119,7 +119,7 @@ style.and(style.hover, style.focus)
 Writing media queries can be made easy with the help of the `mq` helper that provides a nice DSL. Simply chain the exposed methods to build the desired media query string.
 
 ```tsx
-import mq, { style } from '@n3e/styled';
+import styled, { mq } from '@n3e/styled';
 
 const Container = styled.div({
   // @media screen and (min-width: 768px) and (max-width: 991px) { ... }

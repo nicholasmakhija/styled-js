@@ -10,26 +10,31 @@ There is also a way to define global styles using CSS, more on that later.
 
 
 ```shell
-# npm
+# with npm
 npm install @n3e/styled
 
-# yarn
+# with yarn
 yarn add @n3e/styled
 
-#pnpm
+# with pnpm
 pnpm add @n3e/styled
 
-#bun
+# with bun
 bun add @n3e/styled
 ```
+
+Once installed, just import like so
+
+```typescript
+import styled from '@n3e/styled';
+```
+
 
 ## Getting started
 
 Let's start by building a simple button.
 
 ```tsx
-import styled from '@n3e/styled';
-
 const buttonAccent = 'hotpink';
 
 const Button = styled.button({
@@ -412,7 +417,11 @@ type CustomHeadingProps = {
 const CustomHeading = ({
   children,
   className
-}) => <h2 className={className}>{ children }</h2>;
+}: CustomHeadingProps) => (
+  <h2 className={className}>
+    {children}
+  </h2>
+);
 
 const Wrapped = GenericSize(CustomHeading);
 
