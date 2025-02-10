@@ -1,0 +1,81 @@
+export const PSEUDO_ELEMENTS = [
+    'after',
+    'backdrop',
+    'before',
+    'cue',
+    'cueRegion',
+    'firstLetter',
+    'firstLine',
+    'fileSelectorButton',
+    'marker',
+    'placeholder',
+    'selection'
+];
+export const PSEUDO_ELEMENT_FUNCTIONS = [
+    'part',
+    'slotted'
+];
+export const PSEUDO_CLASSES = [
+    'active',
+    'anyLink',
+    'autofill',
+    'checked',
+    'default',
+    'defined',
+    'disabled',
+    'empty',
+    'enabled',
+    'first',
+    'firstChild',
+    'firstOfType',
+    'fullscreen',
+    'focus',
+    'focusVisible',
+    'focusWithin',
+    'hover',
+    'indeterminate',
+    'inRange',
+    'invalid',
+    'lastChild',
+    'lastOfType',
+    'left',
+    'link',
+    'modal',
+    'onlyChild',
+    'onlyOfType',
+    'optional',
+    'outOfRange',
+    'pictureInPicture',
+    'placeholderShown',
+    'paused',
+    'playing',
+    'readOnly',
+    'readWrite',
+    'required',
+    'right',
+    'root',
+    'scope',
+    'target',
+    'valid',
+    'visited'
+];
+export const PCF_STRING = [
+    'host',
+    'lang'
+];
+export const PCF_STRING_ARRAY = [
+    'is',
+    'not',
+    'where'
+];
+export const PCF_NUMBER_OR_STRING = [
+    'nthChild',
+    'nthLastChild',
+    'nthLastOfType',
+    'nthOfType'
+];
+export const PSEUDO_CLASS_FUNCTIONS = [
+    ...PCF_STRING,
+    ...PCF_STRING_ARRAY,
+    ...PCF_NUMBER_OR_STRING
+];

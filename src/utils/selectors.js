@@ -1,0 +1,11 @@
+const OR = '||';
+export const concat = (...items) => items.join('');
+export const joinToEnd = (tail) => (head) => concat(head, tail);
+export const joinToStart = (head) => (tail) => concat(head, tail);
+export const dotPrefix = joinToStart('.');
+export const appendTo = (list) => (suffix) => list.map(joinToEnd(suffix));
+export const addItems = (prev, next) => next.split(OR).flatMap(appendTo(prev));
+export const joinWithOr = (list) => list.join(OR);
+export const safeJoinWith = (divider) => (...items) => items.filter(Boolean).join(divider);
+export const joinWithSpace = safeJoinWith(' ');
+export const wrap = (data) => `(${data})`;
