@@ -46,11 +46,11 @@ const Composition = () => (
 
 SolidJS users need to import Styled from the the `solid` output folder:
 
-```shell
-# as ES module
+```typescript
+// as ES module
 import styled from '@n3e/styled/solid/esm';
 
-# as CommonJS module
+// as CommonJS module
 import styled from '@n3e/styled/solid/cjs';
 ```
 
