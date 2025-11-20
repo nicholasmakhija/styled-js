@@ -74,7 +74,7 @@ const styledElement = (innerElement) => ({ classIdentity, displayName, styleRule
         const propsToForward = isString(innerElement)
             ? skipTransient(props)
             : props;
-        const refToForward = isValidRef(ref)
+        const refToForward = hasRef && isValidRef(ref)
             ? { ref }
             : undefined;
         const classNamesToForward = joinWithSpace(classIdentity, ...getClassNames(props), className);
