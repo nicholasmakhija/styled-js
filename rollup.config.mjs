@@ -2,7 +2,6 @@ import { brotliCompress } from 'zlib';
 import { promisify } from 'util';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import gzipPlugin from 'rollup-plugin-gzip';
 import copy from 'rollup-plugin-copy';
@@ -76,7 +75,6 @@ export default [{
         preventAssignment: true,
         'process.env.NODE_ENV': JSON.stringify(nodeEnv)
       }),
-      commonjs(),
       isProd && terser({
         mangle: { toplevel: true },
         compress: {
