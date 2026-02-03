@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { style } from '../../helper.style';
-import { accumulateData, hasCurrent, isValidRef, styled } from './styled';
+import { accumulateData, styled } from './styled';
 describe('styled.helpers', () => {
     describe('accumulateData', () => {
         const sizeKey = 'props.only(size)';
@@ -83,31 +83,6 @@ describe('styled.helpers', () => {
             const testKeys = Object.keys(mergedPropTypes);
             const resultKeys = Object.keys(result[1]);
             expect(testKeys).toEqual(resultKeys);
-        });
-    });
-    describe('hasCurrent', () => {
-        it('should be truthy when given "ref" has "current" property', () => {
-            expect(hasCurrent({ current: true })).toBeTruthy();
-            expect(hasCurrent({ current: undefined })).toBeTruthy();
-            expect(hasCurrent({ current: [] })).toBeTruthy();
-            expect(hasCurrent({ current: {} })).toBeTruthy();
-        });
-        it('should be falsy when given "ref" does not have "current" property', () => {
-            expect(hasCurrent({})).toBeFalsy();
-            expect(hasCurrent(null)).toBeFalsy();
-            expect(hasCurrent(undefined)).toBeFalsy();
-        });
-    });
-    describe('isValidRef', () => {
-        it('should be truthy if the given "ref" is valid', () => {
-            expect(isValidRef({ current: true })).toBeTruthy();
-            expect(isValidRef({ current: undefined })).toBeTruthy();
-            expect(isValidRef((node) => typeof node === 'object')).toBeTruthy();
-        });
-        it('should be falsy if the given "ref" is invalid', () => {
-            expect(isValidRef({})).toBeFalsy();
-            expect(isValidRef(null)).toBeFalsy();
-            expect(isValidRef(undefined)).toBeFalsy();
         });
     });
 });

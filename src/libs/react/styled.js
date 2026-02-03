@@ -1,5 +1,5 @@
 import React from 'react';
-import { dotPrefix, elementClassName, expand, joinWithSpace, isFunction, isNil, isString, mergeStyles } from '../../utils';
+import { dotPrefix, elementClassName, expand, joinWithSpace, isString, mergeStyles } from '../../utils';
 import { skipTransient } from '../../props';
 import { styleManager } from '../../style-manager';
 import { HTML_TAGS as htmlTagNames } from '../../constants';
@@ -64,23 +64,16 @@ const styledFactory = (name, extendableThing, accumulatedValues = factoryMeta) =
         hasRef: accumulatedValues.hasRef
     }));
 };
-export const hasCurrent = (ref) => 'current' in (ref || {});
-export const isValidRef = (ref) => (!isNil(ref)
-    &&
-        (hasCurrent(ref) || isFunction(ref)));
 const styledElement = (innerElement) => ({ classIdentity, displayName, styleRules, plainStyles, hasRef }) => {
     const getClassNames = styleManager(styleRules, plainStyles);
     const Component = ({ children, className = '', ...props }, ref) => {
         const propsToForward = isString(innerElement)
             ? skipTransient(props)
             : props;
-        const refToForward = hasRef && isValidRef(ref)
-            ? { ref }
-            : undefined;
         const classNamesToForward = joinWithSpace(classIdentity, ...getClassNames(props), className);
         return React.createElement(innerElement, {
             ...propsToForward,
-            ...refToForward,
+            ...(hasRef && { ref }),
             className: classNamesToForward
         }, children);
     };
