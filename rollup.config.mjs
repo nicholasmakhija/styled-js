@@ -6,17 +6,10 @@ import terser from '@rollup/plugin-terser';
 import gzipPlugin from 'rollup-plugin-gzip';
 import copy from 'rollup-plugin-copy';
 
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-const pkg = require('./package.json');
-
 const brotliPromise = promisify(brotliCompress);
 
 const nodeEnv = process.env.NODE_ENV;
 const isProd = nodeEnv === 'production';
-
-const license = `/** @license styled v${pkg.version}. Copyright (c) N3E. */`;
 
 /**
  * @typedef {{
@@ -61,7 +54,6 @@ export default [{
     external: config.external,
     input: `src/libs/${config.name}/index.js`,
     output: outputConfig.map(/** @type {ConfigMapper} */(c) => ({
-      banner: license,
       compact: true,
       sourcemap: !isProd,
       file: `${config.name}/${c.folder}/index.js`,
