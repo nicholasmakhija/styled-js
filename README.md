@@ -23,12 +23,10 @@ bun add @n3e/styled
 ```tsx
 import styled from '@n3e/styled';
 
-const accent = '#ff6995';
-
 const Button = styled.button({
   appearance: 'none',
-  backgroundColor: accent,
-  border: `2px solid ${accent}`,
+  backgroundColor: '#ff6995',
+  border: '2px solid #ff6995',
   borderRadius: '0.25rem',
   margin: 0,
   padding: '0 6px',
